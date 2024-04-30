@@ -1,63 +1,72 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'add_location_form.dart';
+import 'location_list.dart';
 
-class FavoriteListPage extends StatefulWidget {
+
+class FavoriteListPage extends StatelessWidget {
   const FavoriteListPage({super.key});
 
-
   @override
-  State<StatefulWidget> createState() => _FavoriteListPageState();
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(
+            value: LocationList()
+        ),
+      ],
+      child: const MaterialApp(
+        title: 'proxy spot',
+        home: const HomePage(),
+      ),
 
+
+    );
+  }
 }
 
-class _FavoriteListPageState extends State<FavoriteListPage> {
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool _showingForm = false;
+
+  void _showForm(){
+    setState(() {
+      _showingForm = true;
+    });
+  }
+
+  void _hideForm(){
+    setState(() {
+      _showingForm = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color(0xff154406),
-        centerTitle: true,
-        title: const Text('Favorite Address', style: TextStyle(fontSize: 14, color: Colors.black, fontWeight: FontWeight.w800),),
-        leading: Text(''),
+        title: const Text(
+            'Favorite Locations',
+            style: TextStyle(color: Colors.white, fontSize: 25)
+        ),
       ),
-      body: ListView(
-        children: [
-          ...<Map<String, dynamic>>[{
-            "name":"abc",
-            "latitude":'0.000',
-            "longitude":'0.000',
-            "address":"11011 NE 9th St B, Bellevue, WA 98004",
-          }].map((e) {
-            return GestureDetector(
-              child: Column(
-                children: [
-                  _buildLabel('name:', '${e['name']}'),
-                  _buildLabel('Latitude:', 'latitude:${e['latitude']}'),
-                  _buildLabel('Longitude:', 'longitude:${e['longitude']}'),
-                  _buildLabel('address:', '${e['address']}'),
-                  const Divider(color: Colors.black, indent: 20, endIndent: 20,),
-                ],
-              ),
-              onTap: () {
-                // Navigator.push(context, MaterialPageRoute(builder: (ctx) => ItemDetailPage(data: e,)));
-              },
-            );
-          }).toList()
-        ],
+      body: Center(
+          child: _showingForm
+              ? AddLocationForm(hideForm: _hideForm,)
+              : LocationListView()
       ),
+      floatingActionButton: _showingForm
+          ? null
+          : FloatingActionButton(
+          onPressed: _showForm,
+          child: const Icon(Icons.add)),
     );
   }
-
-  _buildLabel (String title, String content) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: Row(
-        children: [
-          Text(title, style: const TextStyle(fontSize: 14, color: Colors.black),),
-          Text(content, style: const TextStyle(fontSize: 14, color: Colors.black),)
-        ],
-      ),
-    );
-  }
-
 }
