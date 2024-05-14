@@ -3,6 +3,7 @@ import 'package:prox_spot/pages/home_page.dart';
 
 void main() {
   runApp(MyApp());
+
 }
 
 class MyApp extends StatelessWidget {

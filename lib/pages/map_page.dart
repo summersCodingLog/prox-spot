@@ -83,6 +83,8 @@ class _MapPageState extends State<MapPage> {
             ),
             markers: _markers,
           )),
+
+          /*
           GestureDetector(
             child: Container(
               width: double.infinity,
@@ -95,7 +97,7 @@ class _MapPageState extends State<MapPage> {
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (ctx) => EditFavoritePage(currentPosition: _currentPosition!,)));
             },
-          ),
+          ),*/
         ],
       ),
     );
