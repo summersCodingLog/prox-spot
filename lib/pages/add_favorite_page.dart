@@ -13,8 +13,9 @@ List<String> categories = ["restaurant",'entertainment', 'drink', 'sport', 'outd
 class AddFavoritePage extends StatefulWidget {
 
   final LatLng currentPosition;
+  final String addr;
 
-  const AddFavoritePage({super.key, required this.currentPosition});
+  const AddFavoritePage({super.key, required this.currentPosition, required this.addr});
 
   @override
   State<StatefulWidget> createState() => _AddFavoritePageState();
@@ -26,6 +27,12 @@ class _AddFavoritePageState extends State<AddFavoritePage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _addressController = TextEditingController();
   String _category = 'restaurant';
+
+  @override
+  void initState() {
+    super.initState();
+    _addressController.text = widget.addr;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -90,8 +97,8 @@ class _AddFavoritePageState extends State<AddFavoritePage> {
                     }
                     FavoritePoint? favoritePoint = Hive.getFavoritePoint(widget.currentPosition.latitude, widget.currentPosition.longitude);
                     if (favoritePoint != null) {
-                        showSnackBar(context, 'this address already exists');
-                        return;
+                      showSnackBar(context, 'this address already exists');
+                      return;
                     }
                     favoritePoint = FavoritePoint(lat: widget.currentPosition.latitude, lng: widget.currentPosition.longitude, name: name, category: _category, address: address);
                     await Hive.putFavoritePoint(favoritePoint);

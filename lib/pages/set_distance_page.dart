@@ -39,7 +39,7 @@ class _SetDistancePageState extends State<SetDistancePage> {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Row(
               children: [
-                Text('distance:', style: const TextStyle(fontSize: 14, color: Colors.black),),
+                Text('distance(meter):', style: const TextStyle(fontSize: 14, color: Colors.black),),
                 Expanded(child: TextFormField(
                   controller: _controller,
                   // decoration: const InputDecoration(
