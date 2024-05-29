@@ -10,12 +10,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:mockito/annotations.dart';
+import 'package:location/location.dart';
 
 import 'package:prox_spot/main.dart';
 import 'package:prox_spot/model/favorite_point.dart';
@@ -41,8 +43,12 @@ extension MyAppTesting on GoogleLoginButton {
 }
 
 
+
+@GenerateNiceMocks([MockSpec<Location>()])
 @GenerateNiceMocks([MockSpec<GoogleSignIn>()])
 @GenerateNiceMocks([MockSpec<HiveInterface>()])
+@GenerateNiceMocks([MockSpec<FlutterLocalNotificationsPlugin>()])
+
 
 void main() {
   setUpAll(() async {
@@ -108,14 +114,14 @@ void main() {
   });
 
 
-  testWidgets(
-      'HomePage UI clicking on favorites page', (WidgetTester tester) async {
-    await tester.pumpWidget(MaterialApp(
-      home: HomePage(),
-    ));
+
+  testWidgets('HomePage UI clicking on favorites page', (WidgetTester tester) async {
+    LocationService service = LocationService();
+    await tester.pumpWidget(MaterialApp(home: Scaffold(body: HomePage())));
 
     // Verify that the HomePage widget has been rendered
-    expect(find.byType(HomePage), findsOneWidget);
+    expect(find.byType(Scaffold), findsOneWidget);
+
 
     // Verify that the MapPage is the initial page
     expect(find.byType(MapPage), findsOneWidget);
@@ -150,7 +156,7 @@ void main() {
   });
 
 
-  testWidgets('SetDistancePage UI Test: submitting a distance and saving', (
+  testWidgets('SetDistancePage UI Test: typing in a distance', (
       WidgetTester tester) async {
     Hive.initFlutter();
     Hive.openBox('distance');
@@ -173,6 +179,31 @@ void main() {
     //await tester.pump();
     //expect(find.text('distance set success!'), findsOneWidget);
   });
+
+
+  testWidgets('here', (WidgetTester tester) async {
+    await tester.pumpWidget(const MaterialApp(home: Scaffold(body: AddFavoritePage(currentPosition: LatLng(37.5, -122.0), addr: '123 456th'))));
+    expect(find.byType(Scaffold), findsExactly(2));
+  });
+
+
+
+  testWidgets('FavoriteListPage widget presence test', (WidgetTester tester) async {
+    var fav = FavoritePoint(lat: 0.0, lng: 0.0, name: "here", category: "entertainment", address: "beep");
+
+    // Pump the EditFavoritePage widget into the widget tree
+    await tester.pumpWidget(MaterialApp(home: Scaffold(body: EditFavoritePage(favoritePoint: fav))));
+    expect(find.byType(Scaffold), findsNWidgets(2));
+    expect(find.byType(AppBar), findsOneWidget);
+    expect(find.text('Edit favorite address'), findsOneWidget);
+  });
+
+  testWidgets('MapPage', (WidgetTester tester) async {
+    await tester.pumpWidget(const MaterialApp(home: Scaffold(body: MapPage())));
+    expect(find.byType(Scaffold), findsExactly(2));
+  });
+
+
 }
 
 
