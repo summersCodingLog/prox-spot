@@ -37,6 +37,7 @@ class LocationService {
     // location.onLocationChanged.listen((LocationData currentLocation) {
     //   checkDistanceAndNotify(currentLocation, flutterLocalNotificationsPlugin);
     // });
+    timer?.cancel();
 
   }
 

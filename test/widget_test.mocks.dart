@@ -3,32 +3,36 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i5;
-import 'dart:typed_data' as _i10;
+import 'dart:async' as _i8;
+import 'dart:typed_data' as _i11;
 
+import 'package:flutter/foundation.dart' as _i5;
+import 'package:flutter/material.dart' as _i4;
 import 'package:flutter_local_notifications/src/flutter_local_notifications_plugin.dart'
-    as _i11;
+    as _i13;
 import 'package:flutter_local_notifications/src/initialization_settings.dart'
-    as _i12;
-import 'package:flutter_local_notifications/src/notification_details.dart'
-    as _i15;
-import 'package:flutter_local_notifications/src/platform_specifics/ios/enums.dart'
-    as _i17;
-import 'package:flutter_local_notifications/src/typedefs.dart' as _i13;
-import 'package:flutter_local_notifications/src/types.dart' as _i18;
-import 'package:flutter_local_notifications_platform_interface/flutter_local_notifications_platform_interface.dart'
     as _i14;
+import 'package:flutter_local_notifications/src/notification_details.dart'
+    as _i17;
+import 'package:flutter_local_notifications/src/platform_specifics/ios/enums.dart'
+    as _i19;
+import 'package:flutter_local_notifications/src/typedefs.dart' as _i15;
+import 'package:flutter_local_notifications/src/types.dart' as _i20;
+import 'package:flutter_local_notifications_platform_interface/flutter_local_notifications_platform_interface.dart'
+    as _i16;
 import 'package:google_sign_in/google_sign_in.dart' as _i6;
 import 'package:google_sign_in_platform_interface/google_sign_in_platform_interface.dart'
     as _i7;
-import 'package:hive/hive.dart' as _i3;
-import 'package:hive/src/box/default_compaction_strategy.dart' as _i9;
-import 'package:hive/src/box/default_key_comparator.dart' as _i8;
-import 'package:location/location.dart' as _i4;
+import 'package:hive/hive.dart' as _i2;
+import 'package:hive/src/box/default_compaction_strategy.dart' as _i10;
+import 'package:hive/src/box/default_key_comparator.dart' as _i9;
+import 'package:location/location.dart' as _i12;
 import 'package:location_platform_interface/location_platform_interface.dart'
-    as _i2;
+    as _i3;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:timezone/timezone.dart' as _i16;
+import 'package:mockito/src/dummies.dart' as _i22;
+import 'package:prox_spot/pages/home_page.dart' as _i21;
+import 'package:timezone/timezone.dart' as _i18;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -43,8 +47,8 @@ import 'package:timezone/timezone.dart' as _i16;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-class _FakeLocationData_0 extends _i1.SmartFake implements _i2.LocationData {
-  _FakeLocationData_0(
+class _FakeBox_0<E1> extends _i1.SmartFake implements _i2.Box<E1> {
+  _FakeBox_0(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -53,8 +57,8 @@ class _FakeLocationData_0 extends _i1.SmartFake implements _i2.LocationData {
         );
 }
 
-class _FakeBox_1<E1> extends _i1.SmartFake implements _i3.Box<E1> {
-  _FakeBox_1(
+class _FakeLazyBox_1<E1> extends _i1.SmartFake implements _i2.LazyBox<E1> {
+  _FakeLazyBox_1(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -63,8 +67,8 @@ class _FakeBox_1<E1> extends _i1.SmartFake implements _i3.Box<E1> {
         );
 }
 
-class _FakeLazyBox_2<E1> extends _i1.SmartFake implements _i3.LazyBox<E1> {
-  _FakeLazyBox_2(
+class _FakeLocationData_2 extends _i1.SmartFake implements _i3.LocationData {
+  _FakeLocationData_2(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -73,154 +77,52 @@ class _FakeLazyBox_2<E1> extends _i1.SmartFake implements _i3.LazyBox<E1> {
         );
 }
 
-/// A class which mocks [Location].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockLocation extends _i1.Mock implements _i4.Location {
+class _FakeState_3<T extends _i4.StatefulWidget> extends _i1.SmartFake
+    implements _i4.State<T> {
+  _FakeState_3(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+
   @override
-  _i5.Stream<_i2.LocationData> get onLocationChanged => (super.noSuchMethod(
-        Invocation.getter(#onLocationChanged),
-        returnValue: _i5.Stream<_i2.LocationData>.empty(),
-        returnValueForMissingStub: _i5.Stream<_i2.LocationData>.empty(),
-      ) as _i5.Stream<_i2.LocationData>);
+  String toString({_i5.DiagnosticLevel? minLevel = _i5.DiagnosticLevel.info}) =>
+      super.toString();
+}
+
+class _FakeStatefulElement_4 extends _i1.SmartFake
+    implements _i4.StatefulElement {
+  _FakeStatefulElement_4(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
 
   @override
-  _i5.Future<bool> changeSettings({
-    _i2.LocationAccuracy? accuracy = _i2.LocationAccuracy.high,
-    int? interval = 1000,
-    double? distanceFilter = 0.0,
+  String toString({_i5.DiagnosticLevel? minLevel = _i5.DiagnosticLevel.info}) =>
+      super.toString();
+}
+
+class _FakeDiagnosticsNode_5 extends _i1.SmartFake
+    implements _i5.DiagnosticsNode {
+  _FakeDiagnosticsNode_5(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+
+  @override
+  String toString({
+    _i5.TextTreeConfiguration? parentConfiguration,
+    _i5.DiagnosticLevel? minLevel = _i5.DiagnosticLevel.info,
   }) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #changeSettings,
-          [],
-          {
-            #accuracy: accuracy,
-            #interval: interval,
-            #distanceFilter: distanceFilter,
-          },
-        ),
-        returnValue: _i5.Future<bool>.value(false),
-        returnValueForMissingStub: _i5.Future<bool>.value(false),
-      ) as _i5.Future<bool>);
-
-  @override
-  _i5.Future<bool> isBackgroundModeEnabled() => (super.noSuchMethod(
-        Invocation.method(
-          #isBackgroundModeEnabled,
-          [],
-        ),
-        returnValue: _i5.Future<bool>.value(false),
-        returnValueForMissingStub: _i5.Future<bool>.value(false),
-      ) as _i5.Future<bool>);
-
-  @override
-  _i5.Future<bool> enableBackgroundMode({bool? enable = true}) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #enableBackgroundMode,
-          [],
-          {#enable: enable},
-        ),
-        returnValue: _i5.Future<bool>.value(false),
-        returnValueForMissingStub: _i5.Future<bool>.value(false),
-      ) as _i5.Future<bool>);
-
-  @override
-  _i5.Future<_i2.LocationData> getLocation() => (super.noSuchMethod(
-        Invocation.method(
-          #getLocation,
-          [],
-        ),
-        returnValue: _i5.Future<_i2.LocationData>.value(_FakeLocationData_0(
-          this,
-          Invocation.method(
-            #getLocation,
-            [],
-          ),
-        )),
-        returnValueForMissingStub:
-            _i5.Future<_i2.LocationData>.value(_FakeLocationData_0(
-          this,
-          Invocation.method(
-            #getLocation,
-            [],
-          ),
-        )),
-      ) as _i5.Future<_i2.LocationData>);
-
-  @override
-  _i5.Future<_i2.PermissionStatus> hasPermission() => (super.noSuchMethod(
-        Invocation.method(
-          #hasPermission,
-          [],
-        ),
-        returnValue: _i5.Future<_i2.PermissionStatus>.value(
-            _i2.PermissionStatus.granted),
-        returnValueForMissingStub: _i5.Future<_i2.PermissionStatus>.value(
-            _i2.PermissionStatus.granted),
-      ) as _i5.Future<_i2.PermissionStatus>);
-
-  @override
-  _i5.Future<_i2.PermissionStatus> requestPermission() => (super.noSuchMethod(
-        Invocation.method(
-          #requestPermission,
-          [],
-        ),
-        returnValue: _i5.Future<_i2.PermissionStatus>.value(
-            _i2.PermissionStatus.granted),
-        returnValueForMissingStub: _i5.Future<_i2.PermissionStatus>.value(
-            _i2.PermissionStatus.granted),
-      ) as _i5.Future<_i2.PermissionStatus>);
-
-  @override
-  _i5.Future<bool> serviceEnabled() => (super.noSuchMethod(
-        Invocation.method(
-          #serviceEnabled,
-          [],
-        ),
-        returnValue: _i5.Future<bool>.value(false),
-        returnValueForMissingStub: _i5.Future<bool>.value(false),
-      ) as _i5.Future<bool>);
-
-  @override
-  _i5.Future<bool> requestService() => (super.noSuchMethod(
-        Invocation.method(
-          #requestService,
-          [],
-        ),
-        returnValue: _i5.Future<bool>.value(false),
-        returnValueForMissingStub: _i5.Future<bool>.value(false),
-      ) as _i5.Future<bool>);
-
-  @override
-  _i5.Future<_i2.AndroidNotificationData?> changeNotificationOptions({
-    String? channelName,
-    String? title,
-    String? iconName,
-    String? subtitle,
-    String? description,
-    dynamic color,
-    bool? onTapBringToFront,
-  }) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #changeNotificationOptions,
-          [],
-          {
-            #channelName: channelName,
-            #title: title,
-            #iconName: iconName,
-            #subtitle: subtitle,
-            #description: description,
-            #color: color,
-            #onTapBringToFront: onTapBringToFront,
-          },
-        ),
-        returnValue: _i5.Future<_i2.AndroidNotificationData?>.value(),
-        returnValueForMissingStub:
-            _i5.Future<_i2.AndroidNotificationData?>.value(),
-      ) as _i5.Future<_i2.AndroidNotificationData?>);
+      super.toString();
 }
 
 /// A class which mocks [GoogleSignIn].
@@ -249,15 +151,15 @@ class MockGoogleSignIn extends _i1.Mock implements _i6.GoogleSignIn {
       ) as bool);
 
   @override
-  _i5.Stream<_i6.GoogleSignInAccount?> get onCurrentUserChanged =>
+  _i8.Stream<_i6.GoogleSignInAccount?> get onCurrentUserChanged =>
       (super.noSuchMethod(
         Invocation.getter(#onCurrentUserChanged),
-        returnValue: _i5.Stream<_i6.GoogleSignInAccount?>.empty(),
-        returnValueForMissingStub: _i5.Stream<_i6.GoogleSignInAccount?>.empty(),
-      ) as _i5.Stream<_i6.GoogleSignInAccount?>);
+        returnValue: _i8.Stream<_i6.GoogleSignInAccount?>.empty(),
+        returnValueForMissingStub: _i8.Stream<_i6.GoogleSignInAccount?>.empty(),
+      ) as _i8.Stream<_i6.GoogleSignInAccount?>);
 
   @override
-  _i5.Future<_i6.GoogleSignInAccount?> signInSilently({
+  _i8.Future<_i6.GoogleSignInAccount?> signInSilently({
     bool? suppressErrors = true,
     bool? reAuthenticate = false,
   }) =>
@@ -270,70 +172,70 @@ class MockGoogleSignIn extends _i1.Mock implements _i6.GoogleSignIn {
             #reAuthenticate: reAuthenticate,
           },
         ),
-        returnValue: _i5.Future<_i6.GoogleSignInAccount?>.value(),
-        returnValueForMissingStub: _i5.Future<_i6.GoogleSignInAccount?>.value(),
-      ) as _i5.Future<_i6.GoogleSignInAccount?>);
+        returnValue: _i8.Future<_i6.GoogleSignInAccount?>.value(),
+        returnValueForMissingStub: _i8.Future<_i6.GoogleSignInAccount?>.value(),
+      ) as _i8.Future<_i6.GoogleSignInAccount?>);
 
   @override
-  _i5.Future<bool> isSignedIn() => (super.noSuchMethod(
+  _i8.Future<bool> isSignedIn() => (super.noSuchMethod(
         Invocation.method(
           #isSignedIn,
           [],
         ),
-        returnValue: _i5.Future<bool>.value(false),
-        returnValueForMissingStub: _i5.Future<bool>.value(false),
-      ) as _i5.Future<bool>);
+        returnValue: _i8.Future<bool>.value(false),
+        returnValueForMissingStub: _i8.Future<bool>.value(false),
+      ) as _i8.Future<bool>);
 
   @override
-  _i5.Future<_i6.GoogleSignInAccount?> signIn() => (super.noSuchMethod(
+  _i8.Future<_i6.GoogleSignInAccount?> signIn() => (super.noSuchMethod(
         Invocation.method(
           #signIn,
           [],
         ),
-        returnValue: _i5.Future<_i6.GoogleSignInAccount?>.value(),
-        returnValueForMissingStub: _i5.Future<_i6.GoogleSignInAccount?>.value(),
-      ) as _i5.Future<_i6.GoogleSignInAccount?>);
+        returnValue: _i8.Future<_i6.GoogleSignInAccount?>.value(),
+        returnValueForMissingStub: _i8.Future<_i6.GoogleSignInAccount?>.value(),
+      ) as _i8.Future<_i6.GoogleSignInAccount?>);
 
   @override
-  _i5.Future<_i6.GoogleSignInAccount?> signOut() => (super.noSuchMethod(
+  _i8.Future<_i6.GoogleSignInAccount?> signOut() => (super.noSuchMethod(
         Invocation.method(
           #signOut,
           [],
         ),
-        returnValue: _i5.Future<_i6.GoogleSignInAccount?>.value(),
-        returnValueForMissingStub: _i5.Future<_i6.GoogleSignInAccount?>.value(),
-      ) as _i5.Future<_i6.GoogleSignInAccount?>);
+        returnValue: _i8.Future<_i6.GoogleSignInAccount?>.value(),
+        returnValueForMissingStub: _i8.Future<_i6.GoogleSignInAccount?>.value(),
+      ) as _i8.Future<_i6.GoogleSignInAccount?>);
 
   @override
-  _i5.Future<_i6.GoogleSignInAccount?> disconnect() => (super.noSuchMethod(
+  _i8.Future<_i6.GoogleSignInAccount?> disconnect() => (super.noSuchMethod(
         Invocation.method(
           #disconnect,
           [],
         ),
-        returnValue: _i5.Future<_i6.GoogleSignInAccount?>.value(),
-        returnValueForMissingStub: _i5.Future<_i6.GoogleSignInAccount?>.value(),
-      ) as _i5.Future<_i6.GoogleSignInAccount?>);
+        returnValue: _i8.Future<_i6.GoogleSignInAccount?>.value(),
+        returnValueForMissingStub: _i8.Future<_i6.GoogleSignInAccount?>.value(),
+      ) as _i8.Future<_i6.GoogleSignInAccount?>);
 
   @override
-  _i5.Future<bool> requestScopes(List<String>? scopes) => (super.noSuchMethod(
+  _i8.Future<bool> requestScopes(List<String>? scopes) => (super.noSuchMethod(
         Invocation.method(
           #requestScopes,
           [scopes],
         ),
-        returnValue: _i5.Future<bool>.value(false),
-        returnValueForMissingStub: _i5.Future<bool>.value(false),
-      ) as _i5.Future<bool>);
+        returnValue: _i8.Future<bool>.value(false),
+        returnValueForMissingStub: _i8.Future<bool>.value(false),
+      ) as _i8.Future<bool>);
 }
 
 /// A class which mocks [HiveInterface].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockHiveInterface extends _i1.Mock implements _i3.HiveInterface {
+class MockHiveInterface extends _i1.Mock implements _i2.HiveInterface {
   @override
   void init(
     String? path, {
-    _i3.HiveStorageBackendPreference? backendPreference =
-        _i3.HiveStorageBackendPreference.native,
+    _i2.HiveStorageBackendPreference? backendPreference =
+        _i2.HiveStorageBackendPreference.native,
   }) =>
       super.noSuchMethod(
         Invocation.method(
@@ -345,14 +247,14 @@ class MockHiveInterface extends _i1.Mock implements _i3.HiveInterface {
       );
 
   @override
-  _i5.Future<_i3.Box<E>> openBox<E>(
+  _i8.Future<_i2.Box<E>> openBox<E>(
     String? name, {
-    _i3.HiveCipher? encryptionCipher,
-    _i3.KeyComparator? keyComparator = _i8.defaultKeyComparator,
-    _i3.CompactionStrategy? compactionStrategy = _i9.defaultCompactionStrategy,
+    _i2.HiveCipher? encryptionCipher,
+    _i2.KeyComparator? keyComparator = _i9.defaultKeyComparator,
+    _i2.CompactionStrategy? compactionStrategy = _i10.defaultCompactionStrategy,
     bool? crashRecovery = true,
     String? path,
-    _i10.Uint8List? bytes,
+    _i11.Uint8List? bytes,
     String? collection,
     List<int>? encryptionKey,
   }) =>
@@ -371,7 +273,7 @@ class MockHiveInterface extends _i1.Mock implements _i3.HiveInterface {
             #encryptionKey: encryptionKey,
           },
         ),
-        returnValue: _i5.Future<_i3.Box<E>>.value(_FakeBox_1<E>(
+        returnValue: _i8.Future<_i2.Box<E>>.value(_FakeBox_0<E>(
           this,
           Invocation.method(
             #openBox,
@@ -388,7 +290,7 @@ class MockHiveInterface extends _i1.Mock implements _i3.HiveInterface {
             },
           ),
         )),
-        returnValueForMissingStub: _i5.Future<_i3.Box<E>>.value(_FakeBox_1<E>(
+        returnValueForMissingStub: _i8.Future<_i2.Box<E>>.value(_FakeBox_0<E>(
           this,
           Invocation.method(
             #openBox,
@@ -405,14 +307,14 @@ class MockHiveInterface extends _i1.Mock implements _i3.HiveInterface {
             },
           ),
         )),
-      ) as _i5.Future<_i3.Box<E>>);
+      ) as _i8.Future<_i2.Box<E>>);
 
   @override
-  _i5.Future<_i3.LazyBox<E>> openLazyBox<E>(
+  _i8.Future<_i2.LazyBox<E>> openLazyBox<E>(
     String? name, {
-    _i3.HiveCipher? encryptionCipher,
-    _i3.KeyComparator? keyComparator = _i8.defaultKeyComparator,
-    _i3.CompactionStrategy? compactionStrategy = _i9.defaultCompactionStrategy,
+    _i2.HiveCipher? encryptionCipher,
+    _i2.KeyComparator? keyComparator = _i9.defaultKeyComparator,
+    _i2.CompactionStrategy? compactionStrategy = _i10.defaultCompactionStrategy,
     bool? crashRecovery = true,
     String? path,
     String? collection,
@@ -432,7 +334,7 @@ class MockHiveInterface extends _i1.Mock implements _i3.HiveInterface {
             #encryptionKey: encryptionKey,
           },
         ),
-        returnValue: _i5.Future<_i3.LazyBox<E>>.value(_FakeLazyBox_2<E>(
+        returnValue: _i8.Future<_i2.LazyBox<E>>.value(_FakeLazyBox_1<E>(
           this,
           Invocation.method(
             #openLazyBox,
@@ -449,7 +351,7 @@ class MockHiveInterface extends _i1.Mock implements _i3.HiveInterface {
           ),
         )),
         returnValueForMissingStub:
-            _i5.Future<_i3.LazyBox<E>>.value(_FakeLazyBox_2<E>(
+            _i8.Future<_i2.LazyBox<E>>.value(_FakeLazyBox_1<E>(
           this,
           Invocation.method(
             #openLazyBox,
@@ -465,51 +367,51 @@ class MockHiveInterface extends _i1.Mock implements _i3.HiveInterface {
             },
           ),
         )),
-      ) as _i5.Future<_i3.LazyBox<E>>);
+      ) as _i8.Future<_i2.LazyBox<E>>);
 
   @override
-  _i3.Box<E> box<E>(String? name) => (super.noSuchMethod(
+  _i2.Box<E> box<E>(String? name) => (super.noSuchMethod(
         Invocation.method(
           #box,
           [name],
         ),
-        returnValue: _FakeBox_1<E>(
+        returnValue: _FakeBox_0<E>(
           this,
           Invocation.method(
             #box,
             [name],
           ),
         ),
-        returnValueForMissingStub: _FakeBox_1<E>(
+        returnValueForMissingStub: _FakeBox_0<E>(
           this,
           Invocation.method(
             #box,
             [name],
           ),
         ),
-      ) as _i3.Box<E>);
+      ) as _i2.Box<E>);
 
   @override
-  _i3.LazyBox<E> lazyBox<E>(String? name) => (super.noSuchMethod(
+  _i2.LazyBox<E> lazyBox<E>(String? name) => (super.noSuchMethod(
         Invocation.method(
           #lazyBox,
           [name],
         ),
-        returnValue: _FakeLazyBox_2<E>(
+        returnValue: _FakeLazyBox_1<E>(
           this,
           Invocation.method(
             #lazyBox,
             [name],
           ),
         ),
-        returnValueForMissingStub: _FakeLazyBox_2<E>(
+        returnValueForMissingStub: _FakeLazyBox_1<E>(
           this,
           Invocation.method(
             #lazyBox,
             [name],
           ),
         ),
-      ) as _i3.LazyBox<E>);
+      ) as _i2.LazyBox<E>);
 
   @override
   bool isBoxOpen(String? name) => (super.noSuchMethod(
@@ -522,17 +424,17 @@ class MockHiveInterface extends _i1.Mock implements _i3.HiveInterface {
       ) as bool);
 
   @override
-  _i5.Future<void> close() => (super.noSuchMethod(
+  _i8.Future<void> close() => (super.noSuchMethod(
         Invocation.method(
           #close,
           [],
         ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
 
   @override
-  _i5.Future<void> deleteBoxFromDisk(
+  _i8.Future<void> deleteBoxFromDisk(
     String? name, {
     String? path,
   }) =>
@@ -542,19 +444,19 @@ class MockHiveInterface extends _i1.Mock implements _i3.HiveInterface {
           [name],
           {#path: path},
         ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
 
   @override
-  _i5.Future<void> deleteFromDisk() => (super.noSuchMethod(
+  _i8.Future<void> deleteFromDisk() => (super.noSuchMethod(
         Invocation.method(
           #deleteFromDisk,
           [],
         ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
 
   @override
   List<int> generateSecureKey() => (super.noSuchMethod(
@@ -567,7 +469,7 @@ class MockHiveInterface extends _i1.Mock implements _i3.HiveInterface {
       ) as List<int>);
 
   @override
-  _i5.Future<bool> boxExists(
+  _i8.Future<bool> boxExists(
     String? name, {
     String? path,
   }) =>
@@ -577,9 +479,9 @@ class MockHiveInterface extends _i1.Mock implements _i3.HiveInterface {
           [name],
           {#path: path},
         ),
-        returnValue: _i5.Future<bool>.value(false),
-        returnValueForMissingStub: _i5.Future<bool>.value(false),
-      ) as _i5.Future<bool>);
+        returnValue: _i8.Future<bool>.value(false),
+        returnValueForMissingStub: _i8.Future<bool>.value(false),
+      ) as _i8.Future<bool>);
 
   @override
   void resetAdapters() => super.noSuchMethod(
@@ -592,7 +494,7 @@ class MockHiveInterface extends _i1.Mock implements _i3.HiveInterface {
 
   @override
   void registerAdapter<T>(
-    _i3.TypeAdapter<T>? adapter, {
+    _i2.TypeAdapter<T>? adapter, {
     bool? internal = false,
     bool? override = false,
   }) =>
@@ -628,15 +530,153 @@ class MockHiveInterface extends _i1.Mock implements _i3.HiveInterface {
       );
 }
 
+/// A class which mocks [Location].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockLocation extends _i1.Mock implements _i12.Location {
+  MockLocation() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i8.Stream<_i3.LocationData> get onLocationChanged => (super.noSuchMethod(
+        Invocation.getter(#onLocationChanged),
+        returnValue: _i8.Stream<_i3.LocationData>.empty(),
+      ) as _i8.Stream<_i3.LocationData>);
+
+  @override
+  _i8.Future<bool> changeSettings({
+    _i3.LocationAccuracy? accuracy = _i3.LocationAccuracy.high,
+    int? interval = 1000,
+    double? distanceFilter = 0.0,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #changeSettings,
+          [],
+          {
+            #accuracy: accuracy,
+            #interval: interval,
+            #distanceFilter: distanceFilter,
+          },
+        ),
+        returnValue: _i8.Future<bool>.value(false),
+      ) as _i8.Future<bool>);
+
+  @override
+  _i8.Future<bool> isBackgroundModeEnabled() => (super.noSuchMethod(
+        Invocation.method(
+          #isBackgroundModeEnabled,
+          [],
+        ),
+        returnValue: _i8.Future<bool>.value(false),
+      ) as _i8.Future<bool>);
+
+  @override
+  _i8.Future<bool> enableBackgroundMode({bool? enable = true}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #enableBackgroundMode,
+          [],
+          {#enable: enable},
+        ),
+        returnValue: _i8.Future<bool>.value(false),
+      ) as _i8.Future<bool>);
+
+  @override
+  _i8.Future<_i3.LocationData> getLocation() => (super.noSuchMethod(
+        Invocation.method(
+          #getLocation,
+          [],
+        ),
+        returnValue: _i8.Future<_i3.LocationData>.value(_FakeLocationData_2(
+          this,
+          Invocation.method(
+            #getLocation,
+            [],
+          ),
+        )),
+      ) as _i8.Future<_i3.LocationData>);
+
+  @override
+  _i8.Future<_i3.PermissionStatus> hasPermission() => (super.noSuchMethod(
+        Invocation.method(
+          #hasPermission,
+          [],
+        ),
+        returnValue: _i8.Future<_i3.PermissionStatus>.value(
+            _i3.PermissionStatus.granted),
+      ) as _i8.Future<_i3.PermissionStatus>);
+
+  @override
+  _i8.Future<_i3.PermissionStatus> requestPermission() => (super.noSuchMethod(
+        Invocation.method(
+          #requestPermission,
+          [],
+        ),
+        returnValue: _i8.Future<_i3.PermissionStatus>.value(
+            _i3.PermissionStatus.granted),
+      ) as _i8.Future<_i3.PermissionStatus>);
+
+  @override
+  _i8.Future<bool> serviceEnabled() => (super.noSuchMethod(
+        Invocation.method(
+          #serviceEnabled,
+          [],
+        ),
+        returnValue: _i8.Future<bool>.value(false),
+      ) as _i8.Future<bool>);
+
+  @override
+  _i8.Future<bool> requestService() => (super.noSuchMethod(
+        Invocation.method(
+          #requestService,
+          [],
+        ),
+        returnValue: _i8.Future<bool>.value(false),
+      ) as _i8.Future<bool>);
+
+  @override
+  _i8.Future<_i3.AndroidNotificationData?> changeNotificationOptions({
+    String? channelName,
+    String? title,
+    String? iconName,
+    String? subtitle,
+    String? description,
+    dynamic color,
+    bool? onTapBringToFront,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #changeNotificationOptions,
+          [],
+          {
+            #channelName: channelName,
+            #title: title,
+            #iconName: iconName,
+            #subtitle: subtitle,
+            #description: description,
+            #color: color,
+            #onTapBringToFront: onTapBringToFront,
+          },
+        ),
+        returnValue: _i8.Future<_i3.AndroidNotificationData?>.value(),
+      ) as _i8.Future<_i3.AndroidNotificationData?>);
+}
+
 /// A class which mocks [FlutterLocalNotificationsPlugin].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockFlutterLocalNotificationsPlugin extends _i1.Mock
-    implements _i11.FlutterLocalNotificationsPlugin {
+    implements _i13.FlutterLocalNotificationsPlugin {
+  MockFlutterLocalNotificationsPlugin() {
+    _i1.throwOnMissingStub(this);
+  }
+
   @override
-  _i5.Future<bool?> initialize(
-    _i12.InitializationSettings? initializationSettings, {
-    _i13.SelectNotificationCallback? onSelectNotification,
+  _i8.Future<bool?> initialize(
+    _i14.InitializationSettings? initializationSettings, {
+    _i15.SelectNotificationCallback? onSelectNotification,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -644,28 +684,25 @@ class MockFlutterLocalNotificationsPlugin extends _i1.Mock
           [initializationSettings],
           {#onSelectNotification: onSelectNotification},
         ),
-        returnValue: _i5.Future<bool?>.value(),
-        returnValueForMissingStub: _i5.Future<bool?>.value(),
-      ) as _i5.Future<bool?>);
+        returnValue: _i8.Future<bool?>.value(),
+      ) as _i8.Future<bool?>);
 
   @override
-  _i5.Future<_i14.NotificationAppLaunchDetails?>
+  _i8.Future<_i16.NotificationAppLaunchDetails?>
       getNotificationAppLaunchDetails() => (super.noSuchMethod(
             Invocation.method(
               #getNotificationAppLaunchDetails,
               [],
             ),
-            returnValue: _i5.Future<_i14.NotificationAppLaunchDetails?>.value(),
-            returnValueForMissingStub:
-                _i5.Future<_i14.NotificationAppLaunchDetails?>.value(),
-          ) as _i5.Future<_i14.NotificationAppLaunchDetails?>);
+            returnValue: _i8.Future<_i16.NotificationAppLaunchDetails?>.value(),
+          ) as _i8.Future<_i16.NotificationAppLaunchDetails?>);
 
   @override
-  _i5.Future<void> show(
+  _i8.Future<void> show(
     int? id,
     String? title,
     String? body,
-    _i15.NotificationDetails? notificationDetails, {
+    _i17.NotificationDetails? notificationDetails, {
     String? payload,
   }) =>
       (super.noSuchMethod(
@@ -679,12 +716,12 @@ class MockFlutterLocalNotificationsPlugin extends _i1.Mock
           ],
           {#payload: payload},
         ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
 
   @override
-  _i5.Future<void> cancel(
+  _i8.Future<void> cancel(
     int? id, {
     String? tag,
   }) =>
@@ -694,27 +731,27 @@ class MockFlutterLocalNotificationsPlugin extends _i1.Mock
           [id],
           {#tag: tag},
         ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
 
   @override
-  _i5.Future<void> cancelAll() => (super.noSuchMethod(
+  _i8.Future<void> cancelAll() => (super.noSuchMethod(
         Invocation.method(
           #cancelAll,
           [],
         ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
 
   @override
-  _i5.Future<void> schedule(
+  _i8.Future<void> schedule(
     int? id,
     String? title,
     String? body,
     DateTime? scheduledDate,
-    _i15.NotificationDetails? notificationDetails, {
+    _i17.NotificationDetails? notificationDetails, {
     String? payload,
     bool? androidAllowWhileIdle = false,
   }) =>
@@ -733,22 +770,22 @@ class MockFlutterLocalNotificationsPlugin extends _i1.Mock
             #androidAllowWhileIdle: androidAllowWhileIdle,
           },
         ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
 
   @override
-  _i5.Future<void> zonedSchedule(
+  _i8.Future<void> zonedSchedule(
     int? id,
     String? title,
     String? body,
-    _i16.TZDateTime? scheduledDate,
-    _i15.NotificationDetails? notificationDetails, {
-    required _i17.UILocalNotificationDateInterpretation?
+    _i18.TZDateTime? scheduledDate,
+    _i17.NotificationDetails? notificationDetails, {
+    required _i19.UILocalNotificationDateInterpretation?
         uiLocalNotificationDateInterpretation,
     required bool? androidAllowWhileIdle,
     String? payload,
-    _i18.DateTimeComponents? matchDateTimeComponents,
+    _i20.DateTimeComponents? matchDateTimeComponents,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -768,17 +805,17 @@ class MockFlutterLocalNotificationsPlugin extends _i1.Mock
             #matchDateTimeComponents: matchDateTimeComponents,
           },
         ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
 
   @override
-  _i5.Future<void> periodicallyShow(
+  _i8.Future<void> periodicallyShow(
     int? id,
     String? title,
     String? body,
-    _i14.RepeatInterval? repeatInterval,
-    _i15.NotificationDetails? notificationDetails, {
+    _i16.RepeatInterval? repeatInterval,
+    _i17.NotificationDetails? notificationDetails, {
     String? payload,
     bool? androidAllowWhileIdle = false,
   }) =>
@@ -797,17 +834,17 @@ class MockFlutterLocalNotificationsPlugin extends _i1.Mock
             #androidAllowWhileIdle: androidAllowWhileIdle,
           },
         ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
 
   @override
-  _i5.Future<void> showDailyAtTime(
+  _i8.Future<void> showDailyAtTime(
     int? id,
     String? title,
     String? body,
-    _i18.Time? notificationTime,
-    _i15.NotificationDetails? notificationDetails, {
+    _i20.Time? notificationTime,
+    _i17.NotificationDetails? notificationDetails, {
     String? payload,
   }) =>
       (super.noSuchMethod(
@@ -822,18 +859,18 @@ class MockFlutterLocalNotificationsPlugin extends _i1.Mock
           ],
           {#payload: payload},
         ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
 
   @override
-  _i5.Future<void> showWeeklyAtDayAndTime(
+  _i8.Future<void> showWeeklyAtDayAndTime(
     int? id,
     String? title,
     String? body,
-    _i18.Day? day,
-    _i18.Time? notificationTime,
-    _i15.NotificationDetails? notificationDetails, {
+    _i20.Day? day,
+    _i20.Time? notificationTime,
+    _i17.NotificationDetails? notificationDetails, {
     String? payload,
   }) =>
       (super.noSuchMethod(
@@ -849,22 +886,180 @@ class MockFlutterLocalNotificationsPlugin extends _i1.Mock
           ],
           {#payload: payload},
         ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
 
   @override
-  _i5.Future<List<_i14.PendingNotificationRequest>>
+  _i8.Future<List<_i16.PendingNotificationRequest>>
       pendingNotificationRequests() => (super.noSuchMethod(
             Invocation.method(
               #pendingNotificationRequests,
               [],
             ),
             returnValue:
-                _i5.Future<List<_i14.PendingNotificationRequest>>.value(
-                    <_i14.PendingNotificationRequest>[]),
-            returnValueForMissingStub:
-                _i5.Future<List<_i14.PendingNotificationRequest>>.value(
-                    <_i14.PendingNotificationRequest>[]),
-          ) as _i5.Future<List<_i14.PendingNotificationRequest>>);
+                _i8.Future<List<_i16.PendingNotificationRequest>>.value(
+                    <_i16.PendingNotificationRequest>[]),
+          ) as _i8.Future<List<_i16.PendingNotificationRequest>>);
+}
+
+/// A class which mocks [HomePage].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockHomePage extends _i1.Mock implements _i21.HomePage {
+  MockHomePage() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.State<_i4.StatefulWidget> createState() => (super.noSuchMethod(
+        Invocation.method(
+          #createState,
+          [],
+        ),
+        returnValue: _FakeState_3<_i4.StatefulWidget>(
+          this,
+          Invocation.method(
+            #createState,
+            [],
+          ),
+        ),
+      ) as _i4.State<_i4.StatefulWidget>);
+
+  @override
+  _i4.StatefulElement createElement() => (super.noSuchMethod(
+        Invocation.method(
+          #createElement,
+          [],
+        ),
+        returnValue: _FakeStatefulElement_4(
+          this,
+          Invocation.method(
+            #createElement,
+            [],
+          ),
+        ),
+      ) as _i4.StatefulElement);
+
+  @override
+  String toStringShort() => (super.noSuchMethod(
+        Invocation.method(
+          #toStringShort,
+          [],
+        ),
+        returnValue: _i22.dummyValue<String>(
+          this,
+          Invocation.method(
+            #toStringShort,
+            [],
+          ),
+        ),
+      ) as String);
+
+  @override
+  void debugFillProperties(_i5.DiagnosticPropertiesBuilder? properties) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #debugFillProperties,
+          [properties],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  String toStringShallow({
+    String? joiner = r', ',
+    _i5.DiagnosticLevel? minLevel = _i5.DiagnosticLevel.debug,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #toStringShallow,
+          [],
+          {
+            #joiner: joiner,
+            #minLevel: minLevel,
+          },
+        ),
+        returnValue: _i22.dummyValue<String>(
+          this,
+          Invocation.method(
+            #toStringShallow,
+            [],
+            {
+              #joiner: joiner,
+              #minLevel: minLevel,
+            },
+          ),
+        ),
+      ) as String);
+
+  @override
+  String toStringDeep({
+    String? prefixLineOne = r'',
+    String? prefixOtherLines,
+    _i5.DiagnosticLevel? minLevel = _i5.DiagnosticLevel.debug,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #toStringDeep,
+          [],
+          {
+            #prefixLineOne: prefixLineOne,
+            #prefixOtherLines: prefixOtherLines,
+            #minLevel: minLevel,
+          },
+        ),
+        returnValue: _i22.dummyValue<String>(
+          this,
+          Invocation.method(
+            #toStringDeep,
+            [],
+            {
+              #prefixLineOne: prefixLineOne,
+              #prefixOtherLines: prefixOtherLines,
+              #minLevel: minLevel,
+            },
+          ),
+        ),
+      ) as String);
+
+  @override
+  _i5.DiagnosticsNode toDiagnosticsNode({
+    String? name,
+    _i5.DiagnosticsTreeStyle? style,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #toDiagnosticsNode,
+          [],
+          {
+            #name: name,
+            #style: style,
+          },
+        ),
+        returnValue: _FakeDiagnosticsNode_5(
+          this,
+          Invocation.method(
+            #toDiagnosticsNode,
+            [],
+            {
+              #name: name,
+              #style: style,
+            },
+          ),
+        ),
+      ) as _i5.DiagnosticsNode);
+
+  @override
+  List<_i5.DiagnosticsNode> debugDescribeChildren() => (super.noSuchMethod(
+        Invocation.method(
+          #debugDescribeChildren,
+          [],
+        ),
+        returnValue: <_i5.DiagnosticsNode>[],
+      ) as List<_i5.DiagnosticsNode>);
+
+  @override
+  String toString({_i5.DiagnosticLevel? minLevel = _i5.DiagnosticLevel.info}) =>
+      super.toString();
 }

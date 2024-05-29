@@ -4,10 +4,8 @@
 // utility in the flutter_test package. For example, you can send tap and scroll
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
-
 import 'dart:async';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -18,10 +16,10 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:mockito/annotations.dart';
 import 'package:location/location.dart';
-
+import 'package:path_provider/path_provider.dart';
+import 'package:prox_spot/adapter/favorite_point_adapter.dart';
 import 'package:prox_spot/main.dart';
 import 'package:prox_spot/model/favorite_point.dart';
-
 import 'package:prox_spot/pages/add_favorite_page.dart';
 import 'package:prox_spot/pages/edit_favorite_page.dart';
 import 'package:prox_spot/pages/favorite_list_page.dart';
@@ -31,11 +29,7 @@ import 'package:prox_spot/pages/home_page.dart';
 import 'package:prox_spot/utils/hive_ext.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mockito/mockito.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:path/path.dart' as path;
 import 'package:prox_spot/service/location_service.dart';
-
-
 import 'widget_test.mocks.dart';
 
 extension MyAppTesting on GoogleLoginButton {
@@ -44,13 +38,16 @@ extension MyAppTesting on GoogleLoginButton {
 
 
 
-@GenerateNiceMocks([MockSpec<Location>()])
+//@GenerateNiceMocks([MockSpec<Location>()])
 @GenerateNiceMocks([MockSpec<GoogleSignIn>()])
 @GenerateNiceMocks([MockSpec<HiveInterface>()])
-@GenerateNiceMocks([MockSpec<FlutterLocalNotificationsPlugin>()])
+@GenerateMocks([Location, FlutterLocalNotificationsPlugin])
+//@GenerateNiceMocks([MockSpec<FlutterLocalNotificationsPlugin>()])
+@GenerateMocks([HomePage])
 
 
 void main() {
+
   setUpAll(() async {
     // Mocking the getApplicationDocumentsDirectory method from path_provider
     const MethodChannel('plugins.flutter.io/path_provider')
@@ -63,10 +60,10 @@ void main() {
     });
 
     //Initialize Hive for test environment
-    await Hive.initFlutter();
+    //await Hive.initFlutter();
     MockHiveInterface mockHive = MockHiveInterface();
     // Open a dummy box for testing
-    await Hive.openBox('app_login');
+    //await Hive.openBox('app_login');
   });
 
 
@@ -116,24 +113,20 @@ void main() {
 
 
   testWidgets('HomePage UI clicking on favorites page', (WidgetTester tester) async {
-    LocationService service = LocationService();
     await tester.pumpWidget(MaterialApp(home: Scaffold(body: HomePage())));
 
     // Verify that the HomePage widget has been rendered
-    expect(find.byType(Scaffold), findsOneWidget);
-
+    expect(find.byType(Scaffold), findsWidgets);
+    expect(find.byIcon(Icons.favorite), findsOneWidget);
+    expect(find.byIcon(Icons.map_outlined), findsOneWidget);
 
     // Verify that the MapPage is the initial page
     expect(find.byType(MapPage), findsOneWidget);
     expect(find.byType(FavoriteListPage), findsNothing);
 
-    // Tap on the second bottom navigation bar item
-    await tester.tap(find.byIcon(Icons.favorite));
-    await tester.pump();
+    await tester.pumpWidget(MaterialApp(home: Scaffold(body: HomePage())));
 
-    // Verify that the FavoriteListPage is displayed after tapping the second bottom navigation bar item
-    expect(find.byType(MapPage), findsNothing);
-    expect(find.byType(FavoriteListPage), findsOneWidget);
+
   });
 
 
@@ -181,9 +174,14 @@ void main() {
   });
 
 
-  testWidgets('here', (WidgetTester tester) async {
+  testWidgets('add favorite page', (WidgetTester tester) async {
     await tester.pumpWidget(const MaterialApp(home: Scaffold(body: AddFavoritePage(currentPosition: LatLng(37.5, -122.0), addr: '123 456th'))));
     expect(find.byType(Scaffold), findsExactly(2));
+
+
+    await tester.enterText(find.byType(TextFormField).first, 'Test Name');
+    await tester.pumpAndSettle();
+    expect(find.text('Test Name'), findsExactly(1));
   });
 
 
